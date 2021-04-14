@@ -55,6 +55,8 @@ func GetAirportByCity(city string) string {
 	return aiportCode
 }
 
+// Функция GetFlightsByDatesAndAirports всех тарифов.
+// Возвращает слайс структур с информацией о тарифах
 func GetFlightsByDatesAndAirports(date, airportFrom, airportTo string) []structs.Tariff {
 	url := "https://www.ozon.travel/graphql"
 	method := "POST"
@@ -69,6 +71,7 @@ func GetFlightsByDatesAndAirports(date, airportFrom, airportTo string) []structs
 	return tariffs
 }
 
+// Функция getTariffs формирует структуры Tariff и добавляет их в массив
 func getTariffs(rawTariffs []gjson.Result) []structs.Tariff {
 	var tariffs []structs.Tariff
 	for _, tariff := range rawTariffs {

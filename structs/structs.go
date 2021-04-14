@@ -1,5 +1,7 @@
 package structs
 
+// структуры для запроса аэропортов
+
 type Airport struct {
 	Code string `json:"code"`
 	Name string `json:"airportName"`

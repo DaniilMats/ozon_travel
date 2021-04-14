@@ -10,7 +10,7 @@ import (
 
 // Функция FormHandler реализует интерфейс func(ResponseWriter, *Request),
 // необходимый для обработки пост данных с формы form.html. Данные собираются
-// для отправки graphql запроса к
+// для отправки graphql запроса и в конце формируют на фронте таблицу с тарифами.
 func FormHandler(writer http.ResponseWriter, request *http.Request) {
 	if err := request.ParseForm(); err != nil {
 		log.Fatal(writer, err)

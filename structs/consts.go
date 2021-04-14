@@ -1,5 +1,6 @@
 package structs
 
+// Вспомогательная функция, чтобы спрятать некрасивый код.
 func GetTableTemplate() string {
 	return `<!DOCTYPE html>
 <html>
