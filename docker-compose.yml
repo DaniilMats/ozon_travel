@@ -1,0 +1,13 @@
+version: "3.5"
+
+services:
+  go_getter:
+    container_name: go_getter
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    working_dir: /usr/local/go/src/awesomeProject
+    command: go run server.go
+    restart: always
