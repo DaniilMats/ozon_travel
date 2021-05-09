@@ -24,7 +24,7 @@ func FormHandler(writer http.ResponseWriter, request *http.Request) {
 	airportTo := ozonApi.GetAirportByCity(flightTo)
 	flightData := ozonApi.GetFlightsByDatesAndAirports(date, airportFrom, airportTo)
 
-	table := structs.GetTableTemplate()
+	table := structs.TABLE_TEMPLATE
 	for _, tariff := range flightData {
 		template := `<tr><td>%s</td><td>%d</td><td>%d</td><td>%s</td><td>%s</td></tr>`
 		for i := range tariff.Flights[0] {

@@ -1,8 +1,6 @@
 package structs
 
-// GetTableTemplate Вспомогательная функция, чтобы спрятать некрасивый код.
-func GetTableTemplate() string {
-	return `<!DOCTYPE html>
+const TABLE_TEMPLATE string = `<!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8" />
@@ -29,4 +27,3 @@ padding: 10px;
 </head>
 <body>
 <table style="width:80%"> <tr> <th>Название тарифа</th> <th>Стоимость</th> <th>Доступно мест</th> <th>Номер полета</th> <th>Авиакомпания</th></tr>`
-}
