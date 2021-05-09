@@ -1,13 +1,15 @@
 package ozonApi
 
 import (
-	"awesomeProject/structs"
 	"encoding/json"
 	"fmt"
-	"github.com/tidwall/gjson"
-	"io"
+	"io/ioutil"
 	"net/http"
 	"strings"
+
+	"github.com/tidwall/gjson"
+
+	"github.com/DaniilMats/ozon_travel/structs"
 )
 
 // Функция getBytesResponse это обертка над стандартным пайплайном запроса
@@ -27,14 +29,14 @@ func getBytesResponse(method, url string, payload *strings.Reader) []byte {
 	}
 	defer res.Body.Close()
 
-	body, err := io.ReadAll(res.Body)
+	body, err := ioutil.ReadAll(res.Body)
 	if err != nil {
 		fmt.Println(err)
 	}
 	return body
 }
 
-// Функция GetAirportByCity отправляет запрос на выгрузку всех аэропортов.
+// GetAirportByCity Функция GetAirportByCity отправляет запрос на выгрузку всех аэропортов.
 // По данным, полученным из ответа строится структура AirportSearch и отдается
 // наружу код аэропорта. Всегда отдается первый аэропорт в списке, для облегчения
 // бизнес-логике.
@@ -55,7 +57,7 @@ func GetAirportByCity(city string) string {
 	return aiportCode
 }
 
-// Функция GetFlightsByDatesAndAirports всех тарифов.
+// GetFlightsByDatesAndAirports Функция формирует запрос чтобы извлечь описание всех тарифов.
 // Возвращает слайс структур с информацией о тарифах
 func GetFlightsByDatesAndAirports(date, airportFrom, airportTo string) []structs.Tariff {
 	url := "https://www.ozon.travel/graphql"

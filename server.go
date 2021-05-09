@@ -1,9 +1,10 @@
 package main
 
 import (
-	"awesomeProject/endpointHandlers"
 	"log"
 	"net/http"
+
+	"github.com/DaniilMats/ozon_travel/endpointHandlers"
 )
 
 func main() {
